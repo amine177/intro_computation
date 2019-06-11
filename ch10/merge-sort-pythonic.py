@@ -52,11 +52,10 @@ def mergeSort(L, predicate = lambda x, y: x < y):
 
     if len(L) < 2:  # a one element list is sorted by definition
         return L[:] # forcing a cloning of L
-    else:
-        m = len(L) // 2
-        sub_left = mergeSort(L[:m], predicate)
-        sub_right = mergeSort(L[m:], predicate)
-        return merge(sub_left, sub_right, predicate)
+    m = len(L) // 2
+    sub_left = mergeSort(L[:m], predicate)
+    sub_right = mergeSort(L[m:], predicate)
+    return merge(sub_left, sub_right, predicate)
 
 if __name__ == "__main__":
     print(mergeSort([3, -2, 101, -5, 3, 4, -1, 0]))
